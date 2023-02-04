@@ -58,9 +58,12 @@ public class CsBoardController {
 		System.out.println(img);
 		System.out.println(csBoardDTO);
 		if(img!=null) {
-			
+		System.out.println( "되려"+System.getProperty("user.dir"));
 		String path = System.getProperty("user.dir");
-		 int index = path.lastIndexOf("\\");
+		System.out.println("패스"+path);
+	//	int index=pathModified.lastIndexOf("\\"); - 윈도우일경
+		int index = path.lastIndexOf("/"); //맥
+		 
 		 System.out.println(index +"index" + "filepath"+csBoardDTO.getFilepath());
 		 //	\FinalProject를 자르고 앞부분만 남김. ex)F:\project\finalProject\final\final1zo\workspace
 		 String pathModified=path.substring(0, index);
@@ -69,7 +72,8 @@ public class CsBoardController {
 	
 		//csBoardService.write(csBoardDTO);	
 		//반복
-		 index=pathModified.lastIndexOf("\\");
+		// index=pathModified.lastIndexOf("\\"); -윈도우일경우
+		 index=pathModified.lastIndexOf("/"); //맥일경우
 		 pathModified = pathModified.substring(0,index);
 		 System.out.println("경로확인"+pathModified);
 		//실제 저장될 경로 지정
